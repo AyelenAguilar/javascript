@@ -29,11 +29,31 @@ entradas()
 
 let nombre= true
 while(nombre){
-
     let nombre= prompt("Ingrese nombre y apellido").toLowerCase()
     let email= prompt("Ingrese un email").toLowerCase()
 
     alert(`Hola ${nombre}! \n En el lapso de 42hs te va a estar llegando un mail a ${email} con tu nro de lugar en la fila virtual para el dia de la venta oficial, gracias por elegirnos!`)
     break
-    
 }
+
+
+class datos{
+
+    constructor(sector, precio, extra){
+    this.sector= sector
+    this.precio= precio
+    this.extra= extra
+
+    }
+}
+
+    const dato1= new datos("campo vip", 15000, 1000)
+    const dato2= new datos("campo trasero", 12500, 800)
+    const dato3= new datos("platea general", 9000, 500)
+
+    const informacion=[dato1, dato2, dato3, ]
+    console.table(informacion)
+    console.log(informacion.length)
+
+
+
