@@ -55,5 +55,18 @@ class datos{
     console.table(informacion)
     console.log(informacion.length)
 
+const precioEntradas=[
+    {sector:'CAMPO VIP', precio: 15000, extra: 1000},
+    {sector:'CAMPO TRASERO', precio: 12500, extra: 800},
+    {sector:'PLATEA GENERAL', precio: 9000, extra: 500},
+]
+
+const buscar= precioEntradas.find((precioEntradas)=> precioEntradas.sector=== "PLATEA GENERAL")
+const buscar2= precioEntradas.find((precioEntradas)=> precioEntradas.sector=== "CAMPO TRASERO")
+console.log(buscar)
+console.log(buscar2)
+
+
+
 
 
