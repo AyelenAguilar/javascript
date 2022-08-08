@@ -1,17 +1,61 @@
 // RESERVA DE LUGAR EN LA FILA VIRTUAL PARA LA VENTA DE ENTRADAS DE UN CONCIERTO
 
+const boton1= document.getElementById("campoVip")
 
-const opciones= document.getElementById('opciones')
+boton1.addEventListener('click', () => {
+    
+    document.getElementById("campoVip").innerHTML=
+    `<div> 
+    <p>SECTOR: CAMPO VIP $15000 + 1000(gastos por servicio)</p>
+    </div>`
 
+})
 
-opciones.innerHTML=` <div class="card"><p id="campoVip">CAMPO VIP</p>
-<button class="boton">Ver precios</button></div>
-<div class="card"><p id="campoTrasero">CAMPO TRASERO</p>
-<button class="boton">Ver precios</button></div>
-<div class="card" ><p  id="platea">PLATEA GENERAL</p>
-<button class="boton">Ver precios</button></div>
-<div class="card"><p  id="reservar">RESERVAR LUGAR EN LA FILA</p>
-<button class="boton">Reservar lugar en fila</button> </div>`
+const boton2= document.getElementById("campoTrasero")
+
+boton2.addEventListener('click', () => {
+    document.getElementById("campoTrasero").innerHTML=
+    `<div> 
+    <p>SECTOR: CAMPO TRASERO $12500 + 800(gastos por servicio)</p>
+    </div>`
+})
+
+const boton3 = document.getElementById("platea")
+
+boton3.addEventListener('click',() => {
+    document.getElementById("platea"). innerHTML=
+    `<div> 
+    <p>SECTOR: PLATEA GENERAL $9000 + 500(gastos por servicio)</p>
+    </div>`
+
+} )
+
+const botonReserva = document.getElementById("botonReserva")
+
+botonReserva.addEventListener('click', () =>{
+    document.getElementById("divForm")
+
+    divForm.innerHTML = `
+    <div class="form__index">
+    <h2>¡Reserva tu lugar en la fila completando este formulario!</h2>
+    <form class="row g-3">
+    <div class="col-6">
+    <label class="form-label" for="Nombre">Nombre</label>
+    <input class="form-control" type="text" id="Nombre"></div>
+    <div class="col-6">
+    <label class="form-label" for="Apellido">Apellido</label>
+    <input class="form-control" type="text" id="Apellido"></div>
+    <div class="col-6">
+    <label class="form-label" for="email">Correo electrónico</label>
+    <input class="form-control" type="email" id="email"></div>
+    <div class="col-6">
+    <label class="form-label" for="numTel">Número de teléfono</label>
+    <input class="form-control" type="text" id="numTel"></div>
+    <div class="col-12">
+    <button type="submit" class="btn btn-dark">Enviar</button></div>
+    `
+})
+
 
 
 

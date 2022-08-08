@@ -33,12 +33,19 @@ header{
     padding: 10px;
 }
 
-.boton{
+.boton, .btn{
     background-color: black;
     color: white;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
+}
 
+.col-6{
+    background-color: bisque;
+    padding: 10px;
+}
 
+.form__index{
+    margin: 20px;
 }
