@@ -1,12 +1,32 @@
 // RESERVA DE LUGAR EN LA FILA VIRTUAL PARA LA VENTA DE ENTRADAS DE UN CONCIERTO
 
+class Datos{
+
+    constructor(sector, precio, extra){
+    this.sector= sector
+    this.precio= precio
+    this.extra= extra
+    }
+}
+
+    const dato1= new Datos("SECTOR: campo vip", "$15000","+$1000")
+    const dato2= new Datos("SECTOR: campo trasero", "$12500", "+$800")
+    const dato3= new Datos("SECTOR: platea general", "$9000","+$500")
+    
+
+    const informacion=[dato1, dato2, dato3]
+
+const imagenes=["imgsectores.jpg"]
+
+function botones(){
+
 const boton1= document.getElementById("campoVip")
 
 boton1.addEventListener('click', () => {
     
     document.getElementById("campoVip").innerHTML=
     `<div> 
-    <p>SECTOR: CAMPO VIP $15000 + 1000(gastos por servicio)</p>
+    <p>${dato1.sector}${dato1.precio}${dato1.extra}</p>
     </div>`
 
 })
@@ -16,7 +36,7 @@ const boton2= document.getElementById("campoTrasero")
 boton2.addEventListener('click', () => {
     document.getElementById("campoTrasero").innerHTML=
     `<div> 
-    <p>SECTOR: CAMPO TRASERO $12500 + 800(gastos por servicio)</p>
+    <p>${dato2.sector} ${dato2.precio} ${dato2.extra}</p>
     </div>`
 })
 
@@ -25,68 +45,74 @@ const boton3 = document.getElementById("platea")
 boton3.addEventListener('click',() => {
     document.getElementById("platea"). innerHTML=
     `<div> 
-    <p>SECTOR: PLATEA GENERAL $9000 + 500(gastos por servicio)</p>
+    <p>${dato3.sector} ${dato3.precio} ${dato3.extra}</p>
     </div>`
 
 } )
 
-const botonReserva = document.getElementById("botonReserva")
+const verSectores= document.getElementById("verSectores")
 
-botonReserva.addEventListener('click', () =>{
+verSectores.addEventListener('click',()=>{
+    document.getElementById("verSectores").innerHTML=
+    `<div "> 
+    <img id="imagen" src="${imagenes[0]}"alt="foto de los sectores">
+    </div>`
+})}
+botones()
+
+const compra= document.getElementById("botonCompra")
+
+compra.addEventListener('click',() => {
     document.getElementById("divForm")
-
-    divForm.innerHTML = `
-    <div class="form__index">
-    <h2>¡Reserva tu lugar en la fila completando este formulario!</h2>
+    divForm.innerHTML=
+    `<div class="form__index">
+    <h2>Ingresa tus datos</h2>
     <form class="row g-3">
     <div class="col-6">
-    <label class="form-label" for="Nombre">Nombre</label>
-    <input class="form-control" type="text" id="Nombre"></div>
+    <label class="form-label"for="Nombre">Nombre</label>
+    <input class="form-control"  id="nombre"  type="text" ></div>
     <div class="col-6">
-    <label class="form-label" for="Apellido">Apellido</label>
-    <input class="form-control" type="text" id="Apellido"></div>
+    <label class="form-label"  for="Apellido">Apellido</label>
+    <input class="form-control" id="apellido"  type="text"></div>
     <div class="col-6">
-    <label class="form-label" for="email">Correo electrónico</label>
-    <input class="form-control" type="email" id="email"></div>
-    <div class="col-6">
-    <label class="form-label" for="numTel">Número de teléfono</label>
-    <input class="form-control" type="text" id="numTel"></div>
-    <div class="col-12">
-    <button type="submit" class="btn btn-dark">Enviar</button></div>
-    `
+    <button  type="submit" id="enviar" class="btn btn-dark">Enviar</button></div>`
+
+})
+
+const arrayNombre=[]
+const arrayApellido=[]
+
+const enviar= document.getElementById("divForm")
+
+divForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    let nombre=document.getElementById('nombre').value
+    let apellido= document.getElementById('apellido').value
+    const nombreUsuario= {nombre,apellido}
+    const nombreApellido={apellido}
+
+    arrayNombre.push(nombreUsuario, nombreApellido)
+
+    localStorage.setItem('usuarios', JSON.stringify(nombreUsuario,nombreApellido))
+
+    let datoUsuario= JSON.parse(localStorage.getItem('usuarios'))
+
+    enviar.innerHTML=`<p id="alert">${datoUsuario.nombre} ${datoUsuario.apellido} gracias por confiar en nosotros</p>`
+
+
+
+    
 })
 
 
 
-
-class datos{
-
-    constructor(sector, precio, extra){
-    this.sector= sector
-    this.precio= precio
-    this.extra= extra
-
-    }
-}
-
-    const dato1= new datos("campo vip", 15000, 1000)
-    const dato2= new datos("campo trasero", 12500, 800)
-    const dato3= new datos("platea general", 9000, 500)
-
-    const informacion=[dato1, dato2, dato3, ]
-    console.table(informacion)
-    console.log(informacion.length)
-
+//carrito de compra de entradas 
 const precioEntradas=[
     {sector:'CAMPO VIP', precio: 15000, extra: 1000},
     {sector:'CAMPO TRASERO', precio: 12500, extra: 800},
     {sector:'PLATEA GENERAL', precio: 9000, extra: 500},
 ]
 
-const buscar= precioEntradas.find((precioEntradas)=> precioEntradas.sector=== "PLATEA GENERAL")
-const buscar2= precioEntradas.find((precioEntradas)=> precioEntradas.sector=== "CAMPO TRASERO")
-console.log(buscar)
-console.log (buscar2)
 
 
 
