@@ -1,4 +1,4 @@
-// RESERVA DE LUGAR EN LA FILA VIRTUAL PARA LA VENTA DE ENTRADAS DE UN CONCIERTO
+// COMPRA DE ENTRADAS DE UN CONCIERTO
 
 class Datos{
 
@@ -15,8 +15,6 @@ class Datos{
     
 
     const informacion=[dato1, dato2, dato3]
-
-const imagenes=["imgsectores.jpg"]
 
 function botones(){
 
@@ -53,10 +51,11 @@ boton3.addEventListener('click',() => {
 const verSectores= document.getElementById("verSectores")
 
 verSectores.addEventListener('click',()=>{
-    document.getElementById("verSectores").innerHTML=
-    `<div "> 
-    <img id="imagen" src="${imagenes[0]}"alt="foto de los sectores">
-    </div>`
+    Swal.fire({
+        imageUrl: 'imgsectores.jpg',
+        imageHeight: 450,
+        imageAlt: 'A tall image'
+    })
 })}
 botones()
 
@@ -95,26 +94,46 @@ divForm.addEventListener("submit", (e) => {
 
     localStorage.setItem('usuarios', JSON.stringify(nombreUsuario,nombreApellido))
 
-    let datoUsuario= JSON.parse(localStorage.getItem('usuarios'))
+JSON.parse(localStorage.getItem('usuarios'))
 
-    enviar.innerHTML=`<p id="alert">${datoUsuario.nombre} ${datoUsuario.apellido} gracias por confiar en nosotros</p>`
-
-
-
-    
+    Swal.fire({
+        title: 'Está seguro/a que quiere confirmar la compra?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        denyButtonText: `Volver`,
+        }).then((result) => {
+        
+        if (result.isConfirmed) {
+        Swal.fire('Compra realizada exitosamente!', '', 'success')
+        } else if (result.isDenied) {
+        Swal.fire('La compra se ha interrumpido', '', 'error')
+        }
+    })
 })
 
 
 
 //carrito de compra de entradas 
-const precioEntradas=[
-    {sector:'CAMPO VIP', precio: 15000, extra: 1000},
-    {sector:'CAMPO TRASERO', precio: 12500, extra: 800},
-    {sector:'PLATEA GENERAL', precio: 9000, extra: 500},
+const entradas=[
+    {sector:'CAMPO VIP',
+    precio: 15000,
+    extra: 1000,
+    cantidad: 1
+},
+
+    {sector:'CAMPO TRASERO',
+    precio: 12500,
+    extra: 800,
+    cantidad: 1
+},
+
+    {sector:'PLATEA GENERAL',
+    precio: 9000,
+    extra: 500,
+    cantidad: 1
+}
 ]
-
-
-
 
 
 
