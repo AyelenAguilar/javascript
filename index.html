@@ -13,38 +13,57 @@
     
 <header>
 </header>
-<div>
+
+<div class="informacion">
     <h1>Información importante</h1>
     <p>Venta general: 10/08  </p>
     <p>Ventas unicamente con tarjetas de crédito y débito (para este evento no habrá boleterias habilitadas)</p>
+</div>
 
-<div id="opciones">
-        <div class="card"><p> CAMPO VIP </p>
-        <button class="boton"id="campoVip" >Ver precios </button></div>
-        <div class="card"><p> CAMPO TRASERO </p>
-        <button class="boton" id="campoTrasero" >Ver precios</button></div>
-        <div class="card" ><p>PLATEA GENERAL </p>
-        <button class="boton"id="platea" >Ver precios</button></div>
+        
+        <div id="tabla">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">SECTOR</th>
+                <th scope="col">PRECIO</th>
+                <th scope="col">GASTOS POR SERVICIO</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="sect">
+                </tbody>
+        </table>
+    </div>
 
-        <div class="card"><p> VER SECTORES </p>
-            <button class="boton" id="verSectores">Click acá para ver ubicaciones</button> </div>
 
-        <div class="card"><p  id="comprar"> COMPRAR ENTRADAS </p>
-        <button class="boton" id="botonCompra">Click acá para comprar</button> 
+        <div class="card">
+            <p> VER SECTORES </p>
+            <button class="boton" id="verSectores">Click acá para ver ubicaciones</button>
         </div>
+
+        <div class="card">
+            <p  id="comprar"> COMPRAR ENTRADAS </p>
+            <button class="boton" id="botonCompra">Click acá para comprar</button> 
+        </div>
+
+
+<div class="carrito"> 
+    <h2>Resumen de compra</h2>
 </div>
-</div>
+
 <div id="divForm"></div>
 
 <div id="enviar"></div>
 
-<div id="carrito"></div>
 
 
-    <script src="script.js"></script>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>

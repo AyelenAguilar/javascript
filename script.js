@@ -1,52 +1,57 @@
-// COMPRA DE ENTRADAS DE UN CONCIERTO
+const sect= document.getElementById("sect")
 
-class Datos{
+fetch("./json/sectores.json")
+.then(response => response.json())
+.then(sectores =>{
+    sectores.forEach((sector, indice) =>{
+        sect.innerHTML +=`
+        <tr class="tabla">
+        <th scope="row" id="sector${indice} class="cardNombre" "> ${sector.sector}</th>
+        <td class="cardPrecio">$${sector.precio}</td>
+        <td class="cardExtra">$${sector.extra}</td>
+        <td>
+        <button  class="boton comprarEntrada" >Comprar</button>
+        </td>
+        </tr>    
+        `
+    })
+})
 
-    constructor(sector, precio, extra){
-    this.sector= sector
-    this.precio= precio
-    this.extra= extra
-    }
+
+//arreglar el carrito de compras
+
+const comprar=document.querySelectorAll('.comprarEntrada')
+comprar.forEach(añadirBoton =>{
+    añadirBoton.addEventListener('click', botonAgregar)
+})
+
+const container= document.querySelector('.carrito')
+
+function botonAgregar(event){
+    const boton=event.target;
+    const table=boton.closest('.tabla');
+
+    const cardNombre= table.querySelector('.cardNombre').textContent;
+    const cardPrecio= table.querySelector('.cardPrecio').textContent;
+    const cardExtra= table.querySelector('cardExtra').textContent;
+    agregarAlCarrito(cardNombre, cardPrecio, cardExtra)
 }
 
-    const dato1= new Datos("SECTOR: campo vip", "$15000","+$1000")
-    const dato2= new Datos("SECTOR: campo trasero", "$12500", "+$800")
-    const dato3= new Datos("SECTOR: platea general", "$9000","+$500")
+function agregarAlCarrito(cardNombre, cardPrecio, cardExtra){
+    const carritoDeCompras= document.createElement('div');
+    
+    const agregarDiv=`
+    
+            <p>SECTOR:${cardNombre} ${cardPrecio} ${cardExtra} </p>
+            `
     
 
-    const informacion=[dato1, dato2, dato3]
+    carritoDeCompras.innerHTML= agregarDiv;
+    container.append(carritoDeCompras);
+}
+
 
 function botones(){
-
-const boton1= document.getElementById("campoVip")
-
-boton1.addEventListener('click', () => {
-    
-    document.getElementById("campoVip").innerHTML=
-    `<div> 
-    <p>${dato1.sector}${dato1.precio}${dato1.extra}</p>
-    </div>`
-
-})
-
-const boton2= document.getElementById("campoTrasero")
-
-boton2.addEventListener('click', () => {
-    document.getElementById("campoTrasero").innerHTML=
-    `<div> 
-    <p>${dato2.sector} ${dato2.precio} ${dato2.extra}</p>
-    </div>`
-})
-
-const boton3 = document.getElementById("platea")
-
-boton3.addEventListener('click',() => {
-    document.getElementById("platea"). innerHTML=
-    `<div> 
-    <p>${dato3.sector} ${dato3.precio} ${dato3.extra}</p>
-    </div>`
-
-} )
 
 const verSectores= document.getElementById("verSectores")
 
@@ -64,7 +69,8 @@ const compra= document.getElementById("botonCompra")
 compra.addEventListener('click',() => {
     document.getElementById("divForm")
     divForm.innerHTML=
-    `<div class="form__index">
+    `
+    <div class="form__index">
     <h2>Ingresa tus datos</h2>
     <form class="row g-3">
     <div class="col-6">
@@ -73,6 +79,7 @@ compra.addEventListener('click',() => {
     <div class="col-6">
     <label class="form-label"  for="Apellido">Apellido</label>
     <input class="form-control" id="apellido"  type="text"></div>
+    
     <div class="col-6">
     <button  type="submit" id="enviar" class="btn btn-dark">Enviar</button></div>`
 
@@ -112,28 +119,6 @@ JSON.parse(localStorage.getItem('usuarios'))
     })
 })
 
-
-
-//carrito de compra de entradas 
-const entradas=[
-    {sector:'CAMPO VIP',
-    precio: 15000,
-    extra: 1000,
-    cantidad: 1
-},
-
-    {sector:'CAMPO TRASERO',
-    precio: 12500,
-    extra: 800,
-    cantidad: 1
-},
-
-    {sector:'PLATEA GENERAL',
-    precio: 9000,
-    extra: 500,
-    cantidad: 1
-}
-]
 
 
 
