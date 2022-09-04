@@ -1,54 +1,33 @@
 const sect= document.getElementById("sect")
 
+function pintarDom(){
 fetch("./json/sectores.json")
 .then(response => response.json())
 .then(sectores =>{
-    sectores.forEach((sector, indice) =>{
+    sectores.forEach((sector) =>{
         sect.innerHTML +=`
         <tr class="tabla">
-        <th scope="row" id="sector${indice} class="cardNombre" "> ${sector.sector}</th>
-        <td class="cardPrecio">$${sector.precio}</td>
-        <td class="cardExtra">$${sector.extra}</td>
+        <th scope="row" > ${sector.sector}</th>
+        <td >$${sector.precio}</td>
+        <td >$${sector.extra}</td>
         <td>
-        <button  class="boton comprarEntrada" >Comprar</button>
+        <button  class="boton" id="comprarEntrada${sector.id}">Comprar</button>
         </td>
         </tr>    
         `
     })
-})
+
+})}
 
 
-//arreglar el carrito de compras
+pintarDom()
 
-const comprar=document.querySelectorAll('.comprarEntrada')
-comprar.forEach(añadirBoton =>{
-    añadirBoton.addEventListener('click', botonAgregar)
-})
+const entradas=[]
 
-const container= document.querySelector('.carrito')
 
-function botonAgregar(event){
-    const boton=event.target;
-    const table=boton.closest('.tabla');
 
-    const cardNombre= table.querySelector('.cardNombre').textContent;
-    const cardPrecio= table.querySelector('.cardPrecio').textContent;
-    const cardExtra= table.querySelector('cardExtra').textContent;
-    agregarAlCarrito(cardNombre, cardPrecio, cardExtra)
-}
 
-function agregarAlCarrito(cardNombre, cardPrecio, cardExtra){
-    const carritoDeCompras= document.createElement('div');
-    
-    const agregarDiv=`
-    
-            <p>SECTOR:${cardNombre} ${cardPrecio} ${cardExtra} </p>
-            `
-    
 
-    carritoDeCompras.innerHTML= agregarDiv;
-    container.append(carritoDeCompras);
-}
 
 
 function botones(){

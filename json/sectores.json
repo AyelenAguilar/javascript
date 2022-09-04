@@ -2,21 +2,21 @@
     {"sector":"CAMPO VIP",
     "precio": 15000,
     "extra": 1000,
-    "cantidad": 1,
+    "id": 1,
     "disponibles":3000
 },
 
     {"sector":"CAMPO TRASERO",
     "precio": 12500,
     "extra": 800,
-    "cantidad": 1,
+    "id": 2,
     "disponibles":4000
 },
 
     {"sector":"PLATEA GENERAL",
     "precio": 9000,
     "extra": 500,
-    "cantidad": 1,
+    "id": 3,
     "disponibles":2500
 }
 ]
