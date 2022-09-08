@@ -83,3 +83,19 @@ header{
     margin: 20px;
 }
 
+.btn-izq{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.items-carrito{
+    display: flex;
+    margin: 10px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    border-bottom: 1px solid #dee2e6;
+    align-items: baseline;
+}

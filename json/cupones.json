@@ -1,0 +1,26 @@
+[
+    {   
+        "indice":1,
+        "imagen":"./img/promosantander.jpg",
+        "titulo":"10% de descuento con BANCO SANTANDER",
+        "texto":"Si sos beneficiario de Banco Santander aprovechá y pedí tu cupón de descuento del 10% para usarlo en la compra de tus entradas pagando con tu tarjeta de credito del banco ciudad",
+        "codigo":"SantaNDER982"
+    },
+
+    {
+        "indice":2,
+        "imagen":"./img/promociudad.jpg",
+        "titulo":"5% de descuento pagando con Banco Ciudad",
+        "texto":"Comprando 2 o más entradas y pagando con tarjeta de debito o crédito adquirís este cupón. Click en obtener cupón",
+        "codigo":"ciudadNJPLD56"
+    },
+
+    {
+        "indice":3,
+        "imagen":"./img/promohsbc.jpg",
+        "titulo":"HSBC te lleva a ver a Olivia Rodrigo!!",
+        "texto":"Accedé a este descuento del 15% pagando con tarjeta de crédito. No te lo podés perder!!",
+        "codigo":"09polJhsbc"
+    }
+
+]
